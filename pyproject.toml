@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyshapley2"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python replication of Stata's shapley2: Shapley-Owen decomposition for regression fit statistics"
 readme = "README.md"
 license = { file = "LICENSE" }
