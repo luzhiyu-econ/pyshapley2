@@ -1,0 +1,93 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyshapley2"
+version = "0.1.0"
+description = "Python replication of Stata's shapley2: Shapley-Owen decomposition for regression fit statistics"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "luzhiyu-econ", email = "zhiyu.lu.econ@icloud.com" }]
+requires-python = ">=3.9"
+
+keywords = [
+    "shapley",
+    "shapley value",
+    "R-squared decomposition",
+    "econometrics",
+    "stata",
+    "regression",
+    "variable importance",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "numpy>=1.22",
+    "pandas>=1.4",
+    "statsmodels>=0.13",
+]
+
+[project.optional-dependencies]
+parallel = ["joblib>=1.2"]
+plot     = ["matplotlib>=3.5"]
+progress = ["tqdm>=4.64"]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "joblib>=1.2",
+    "matplotlib>=3.5",
+    "tqdm>=4.64",
+    "ruff>=0.4",
+]
+all = [
+    "joblib>=1.2",
+    "matplotlib>=3.5",
+    "tqdm>=4.64",
+]
+
+[project.urls]
+Homepage      = "https://github.com/luzhiyu-econ/pyshapley2"
+Repository    = "https://github.com/luzhiyu-econ/pyshapley2"
+Documentation = "https://github.com/luzhiyu-econ/pyshapley2#readme"
+"Bug Tracker" = "https://github.com/luzhiyu-econ/pyshapley2/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pyshapley2"]
+
+[tool.ruff]
+line-length    = 100
+target-version = "py39"
+src            = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W"]
+ignore = ["E501", "B006"]
+
+[tool.ruff.format]
+quote-style  = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+testpaths  = ["tests"]
+pythonpath = ["src"]
+addopts    = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["pyshapley2"]
+omit   = ["tests/*"]
+
+[tool.coverage.report]
+show_missing = true
