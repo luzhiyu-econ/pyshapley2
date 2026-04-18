@@ -14,22 +14,14 @@ Computes the **Shapley-Owen decomposition** of any regression fit statistic (R²
 ## Installation
 
 ```bash
-# Recommended (parallel + plot + progress)
-pip install "pyshapley2[all]"
-
-# Core only (serial, no extras)
 pip install pyshapley2
 ```
 
-Optional extras:
+For development:
 
-| Extra | Installs | Needed for |
-|---|---|---|
-| `parallel` | `joblib` | `n_jobs != 1` |
-| `plot` | `matplotlib` | `.plot()` |
-| `progress` | `tqdm` | `verbose=1` |
-| `all` | all of above | everything |
-| `dev` | above + pytest, ruff | development |
+```bash
+pip install "pyshapley2[dev]"
+```
 
 ---
 

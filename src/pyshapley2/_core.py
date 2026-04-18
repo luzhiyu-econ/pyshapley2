@@ -326,11 +326,8 @@ def shapley2(
         # Serial path
         iter_subsets = enumerate(subsets)
         if verbose == 1:
-            try:
-                from tqdm import tqdm
-                iter_subsets = tqdm(list(iter_subsets), desc="Shapley subsets", unit="subset")
-            except ImportError:
-                warnings.warn("verbose=1 requires tqdm; ignoring.", RuntimeWarning, stacklevel=2)
+            from tqdm import tqdm
+            iter_subsets = tqdm(list(iter_subsets), desc="Shapley subsets", unit="subset")
 
         for i, subset in iter_subsets:
             included_vars = [
@@ -356,12 +353,7 @@ def shapley2(
 
     else:
         # Parallel path via joblib
-        try:
-            from joblib import Parallel, delayed
-        except ImportError as exc:
-            raise ImportError(
-                "n_jobs != 1 requires joblib: pip install pyshapley2[parallel]"
-            ) from exc
+        from joblib import Parallel, delayed
 
         joblib_verbose = 10 if verbose >= 1 else 0
         pairs = Parallel(

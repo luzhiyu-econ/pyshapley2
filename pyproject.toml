@@ -38,24 +38,16 @@ dependencies = [
     "numpy>=1.22",
     "pandas>=1.4",
     "statsmodels>=0.13",
+    "joblib>=1.2",
+    "matplotlib>=3.5",
+    "tqdm>=4.64",
 ]
 
 [project.optional-dependencies]
-parallel = ["joblib>=1.2"]
-plot     = ["matplotlib>=3.5"]
-progress = ["tqdm>=4.64"]
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
-    "joblib>=1.2",
-    "matplotlib>=3.5",
-    "tqdm>=4.64",
     "ruff>=0.4",
-]
-all = [
-    "joblib>=1.2",
-    "matplotlib>=3.5",
-    "tqdm>=4.64",
 ]
 
 [project.urls]

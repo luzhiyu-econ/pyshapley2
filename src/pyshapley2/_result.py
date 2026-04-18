@@ -188,12 +188,7 @@ class Shapley2Result:
         -------
         tuple[matplotlib.figure.Figure, matplotlib.axes.Axes]
         """
-        try:
-            import matplotlib.pyplot as plt
-        except ImportError as exc:
-            raise ImportError(
-                "plot() requires matplotlib: pip install pyshapley2[plot]"
-            ) from exc
+        import matplotlib.pyplot as plt
 
         _col_map = {
             "pct":      ("shapley_pct",      f"Shapley contribution % (raw · {self.stat})"),
